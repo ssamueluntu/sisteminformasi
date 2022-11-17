@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Playfair Display', serif, "Raleway", 'poppins', Arial, Helvetica, sans-serif;
+
+}
+
+.navbar {
+    height: 20vh;
+    transition: all 0.5s;
+    background: #04488c;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.01);
+}
+
+.navbar-brand {
+    font-size: 30px;
+    font-family: 'Horizon', "Poppins";
+    font-weight: bold;
+    color: #ef8112;
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.navbarbot a,
+.navbarbot a:focus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.navbarbot .dropdown-menu a,
+.navbarbot .dropdown-menu a:focus {
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    color: rgb(0, 0, 0);
+    transition: 0.2s;
+}
