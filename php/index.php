@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (isset($_SESSION["login"]) == true) {
+    echo "<script>
+                alert('Berhasil masuk sebagai admin');
+            </script>";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +19,7 @@
     <title>Sistem Informasi</title>
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Fontawesome -->
     <link href="assets/vendor/fontawesome/css/all.css" rel="stylesheet">
@@ -19,8 +28,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/vendor/css/style.css">
 </head>
@@ -30,7 +38,6 @@
         <div class="container-fluid justify-content-center">
             <a class="navbar-brand" href="#hero">BRITA DESA</a>
         </div>
-        <label for="toggler"><i class="fa-solid fa-bars"></i></i></label>
         <div class="navbarbot container justify-content-center">
             <ul class="nav">
                 <li class="ms-3">
@@ -41,10 +48,10 @@
                     </a>
                 </li>
                 <li class="ms-3">
-                    <a class="nav-link" href="profil_desa.html">Profil Desa</a>
+                    <a class="nav-link" href="wisata_page.html">Profil Desa</a>
                 </li>
                 <li class="ms-3">
-                    <a class="nav-link" href="profil_desa.html">Data Desa</a>
+                    <a class="nav-link" href="data_desa.html">Data Desa</a>
                 </li>
                 <li class="ms-3">
                     <a class="nav-link" href="bumdes.html">BUMDes</a>
@@ -56,8 +63,15 @@
                     <a class="nav-link" href="layanan.html">Layanan Desa</a>
                 </li>
                 <li class="ms-3 login">
-                    <a class="nav-link" href="login.html"><i class="fa-regular fa-user"></i>login</a>
+                    <a class="nav-link" href="login.php"><i class="fa-regular fa-user"></i>Login</a>
                 </li>
+
+                <?php if (isset($_SESSION["login"]) == true) : ?>
+                    <li class="ms-3 logout">
+                        <a class="nav-link" href="logout.php" name="logout" onclick="return confirm('Yakin ingin logout?');"><i class="fa-regular fa-user"></i>Logout</a>
+                    </li>
+                <?php endif; ?>
+
             </ul>
         </div>
     </nav>
@@ -75,14 +89,12 @@
                 </div>
                 <div class="col-3">
                     <div class="logo">
-                        <img src="assets/vendor/img/logo prov gorontalo.png" alt="logo provinsi Gorontalo"
-                            title="Prov. Gorontalo">
+                        <img src="assets/vendor/img/logo prov gorontalo.png" alt="logo provinsi Gorontalo" title="Prov. Gorontalo">
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="logo">
-                        <img src="assets/vendor/img/logo gorontalo barat.png" alt="logo Kabupaten gorontalo utara"
-                            title="Kab. Gorontalo Utara">
+                        <img src="assets/vendor/img/logo gorontalo barat.png" alt="logo Kabupaten gorontalo utara" title="Kab. Gorontalo Utara">
                     </div>
                 </div>
                 <div class="garis">
@@ -108,26 +120,46 @@
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="profil col-md-2">
-                                <img src="assets/vendor/img/Oreki.jpeg" alt="" width="100"
-                                    class="rounded-circle img-thumbnail mt-2">
+                                <img src="assets/vendor/img/Oreki.jpeg" alt="" width="100" class="rounded-circle img-thumbnail mt-2">
                             </div>
-                            <div class=" col-md-6">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-                                        laboriosam quisquam eaque optio, labore animi minus? Necessitatibus eius dolore
-                                        aliquid libero incidunt excepturi quidem accusamus quo, earum commodi id omnis
-                                        rem culpa repudiandae, consectetur provident beatae qui architecto cumque dicta
-                                        itaque hic nobis? Expedita ratione soluta possimus, quidem ullam quas veritatis
-                                        a corporis optio nisi dicta perferendis, repellat fuga labore nesciunt impedit
-                                        voluptatem et autem assumenda atque consequuntur, neque incidunt alias ducimus?
-                                        Laborum dolore id eveniet sequi distinctio aut magnam deleniti eligendi
-                                        inventore soluta. Omnis maiores ullam, incidunt molestiae libero, ea iste vel
-                                        impedit voluptas fugit vitae, sunt quos veritatis.</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                    </p>
+                            <?php if (isset($_SESSION["login"]) == true) : ?>
+                                <div class=" col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+                                            laboriosam quisquam eaque optio, labore animi minus? Necessitatibus eius dolore
+                                            aliquid libero incidunt excepturi quidem accusamus quo, earum commodi id omnis
+                                            rem culpa repudiandae, consectetur provident beatae qui architecto cumque dicta
+                                            itaque hic nobis? Expedita ratione soluta possimus, quidem ullam quas veritatis
+                                            a corporis optio nisi dicta perferendis, repellat fuga labore nesciunt impedit
+                                            voluptatem et autem assumenda atque consequuntur, neque incidunt alias ducimus?
+                                            Laborum dolore id eveniet sequi distinctio aut magnam deleniti eligendi
+                                            inventore soluta. Omnis maiores ullam, incidunt molestiae libero, ea iste vel
+                                            impedit voluptas fugit vitae, sunt quos veritatis.</p>>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php else : ?>
+                                <div class=" col-md-6">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+                                            laboriosam quisquam eaque optio, labore animi minus? Necessitatibus eius dolore
+                                            aliquid libero incidunt excepturi quidem accusamus quo, earum commodi id omnis
+                                            rem culpa repudiandae, consectetur provident beatae qui architecto cumque dicta
+                                            itaque hic nobis? Expedita ratione soluta possimus, quidem ullam quas veritatis
+                                            a corporis optio nisi dicta perferendis, repellat fuga labore nesciunt impedit
+                                            voluptatem et autem assumenda atque consequuntur, neque incidunt alias ducimus?
+                                            Laborum dolore id eveniet sequi distinctio aut magnam deleniti eligendi
+                                            inventore soluta. Omnis maiores ullam, incidunt molestiae libero, ea iste vel
+                                            impedit voluptas fugit vitae, sunt quos veritatis.</p>>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
                             <div class="col-md-4">
                                 <img src="assets/vendor/img/Naruto.jpeg" class="img-fluid" alt="...">
                             </div>
@@ -200,11 +232,9 @@
                 <div class="col-3">
                     <h3>Hubungi Kami</h3>
                     <ul>
-                        <li><span><a href="#" class="text-decoration-none text-white"><i
-                                        class="fa-solid fa-envelope"></i>
+                        <li><span><a href="#" class="text-decoration-none text-white"><i class="fa-solid fa-envelope"></i>
                                     britasdesa@gamil.com</a></span></li>
-                        <li><span><a href="#" class="text-decoration-none text-white"><i
-                                        class="fa-brands fa-whatsapp"></i>
+                        <li><span><a href="#" class="text-decoration-none text-white"><i class="fa-brands fa-whatsapp"></i>
                                     08xxxxxxxxxx</a></span></li>
                     </ul>
                 </div>
@@ -234,8 +264,7 @@
     <script>
         AOS.init();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <script src="main.js"></script>
 

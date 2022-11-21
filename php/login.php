@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+if( isset($_SESSION["login"])){
+    header("Location: index.php");
+    exit;
+}
+
+    $connect = mysqli_connect("localhost", "root", "", "project");
+
+    if(isset($_POST["masuk"])){
+        $noTelp = $_POST["no_telp"];
+        $password = $_POST["password"];
+
+        $result = mysqli_query($connect, "SELECT * FROM user WHERE no_telp = '$noTelp'");
+
+        // cek nomor telpon
+        if(mysqli_num_rows($result) === 1){
+
+            // cek password
+            if($password){
+
+                // set session
+                $_SESSION["login"] = true;
+
+                header("Location: index.php ");
+                exit;
+            }
+        }
+
+        $error = true;
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,11 +78,16 @@
                 <div class="box">
                     <h3>Sign in ke Portal BRITA Desa Center</h3>
                     <br />
-                    <form action="https://portal.desacenter.id/login" class="form" method="post">
+
+                    <?php if(isset($error)): ?>
+                        <p style="color: red; font-style: italic;"><strong>Nomor/Password salah!</strong></p>
+                    <?php endif; ?>
+
+                    <form action="" class="form" method="post">
                         <input type="hidden" name="_token" value="pWu88eG1pZywx7RCatj8djs8nKde3TLABCOxyDMY">
                         <div class="form-group">
                             <label for="">Nomor Telepon</label>
-                            <input type="number" class="form-control mt-2" name="phone"
+                            <input type="text" class="form-control mt-2" name="no_telp"
                                 placeholder="Masukkan nomor telepon terdaftar anda">
                         </div>
                         <div class="form-group">
@@ -56,20 +96,9 @@
                                 placeholder="Masukkan password anda">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-fill mt-2">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-fill mt-2" name="masuk">Sign In</button>
                         </div>
                     </form>
-                    <div class="form-group mt-3">
-                        <p>
-                            Belum memiliki akun? <a href="register.html">Daftar</a> sekarang!
-                        </p>
-                        <p>
-                            Nomor Telepon Belum Terverifikasi?<a href="#">Verifikasi Ulang</a> sekarang!
-                        </p>
-                        <p>
-                            Lupa Password? <a href="#">Klik Disini!</a>
-                        </p>
-                    </div>
                 </div>
             </div>
             <div class="login-footer">
@@ -79,11 +108,11 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <script src="assets/vendor/fontawesome/js/brands.js"></script>
-    <script src="assets/vendor/fontawesome/js/solid.js"></script>
+    <script src="assets/vendor/fontawesome/js/solid.js"></script> -->
 </body>
 
 </html>
