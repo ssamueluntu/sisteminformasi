@@ -605,10 +605,13 @@ footer ul {
 }
 
 #motto .sejarah .back-text p {
-    background-color: #04488c99;
+    background-color: #04488c61;
+    text-shadow: 0 0 10px rgb(0, 0, 0);
     color: #fff;
     font-size: 20px;
     line-height: 30px;
+    padding: 10px 5px 10px 5px;
+    font-style: italic;
 }
 
 #motto .list-wilayah ul li,
