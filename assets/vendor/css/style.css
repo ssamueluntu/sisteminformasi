@@ -300,57 +300,81 @@ footer ul {
     text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
-#data_desa .container-lg span:nth-child(2) {
-    font-size: 40px;
+#data_desa .container-lg img {
+    float: left;
 }
 
-#data_desa .container-lg span:nth-child(3) {
+#data_desa .container-lg h1,
+.container-lg span {
+    padding-right: 70px;
+    padding-top: 30px;
+}
+
+#data_desa .container-lg span {
     font-size: 20px;
 }
+
 
 
 /* Section Pekerjaan */
+#pekerjaan .header {
+    padding-left: 30px;
+    width: 350px;
+    padding-top: 7px;
+}
 
-/* .works {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+#pekerjaan .container {
+    height: 85vh;
+}
 
 .work {
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
-    background-color: #04488c;
-    color: #ff0000;
+    margin-top: 20px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.container-work {
+    display: flex;
     text-align: center;
-    line-height: 150px;
-
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 30px;
+    background-color: #04488c4d;
+    color: #04488c;
 }
 
-
-#pekerjaan .work :nth-child(1) {
-    font-size: 50px;
-    font-family: 'Anton', sans-serif;
-    z-index: 100;
-}
-
-#pekerjaan .work:nth-child(2) {
-    font-size: 20px;
-    z-index: 100;
+#pekerjaan .container-work span {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 
 /* Section AGAMA */
+#agama .header {
+    padding-left: 20px;
+    padding-top: 7px;
+    width: 250px;
+}
+
+#agama .container {
+    height: 80vh;
+}
+
 .circle-wrapper {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .circle {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     position: relative;
@@ -374,7 +398,7 @@ footer ul {
 }
 
 .content:nth-child(1) {
-    font-size: 20px;
+    font-size: 40px;
     z-index: 100;
     text-align: center;
     font-family: 'Anton', sans-serif;
@@ -391,20 +415,37 @@ footer ul {
 }
 
 /* Section pendidikan */
-#pendidikan .header {
-    background: #ffffff;
+
+#pendidikan {
+    height: 80vh;
 }
 
-#pendidikan .header .float-start {
+#pendidikan .header-pendidikan {
+    position: relative;
+}
+
+#pendidikan .header-pendidikan .text-start,
+.header-pendidikan .text-end {
     background: #04488c;
 }
 
-#pendidikan .header .float-end {
-    background: #04488c;
-}
 
-#pendidikan .header h1 {
+#pendidikan .header-pendidikan p {
     font-size: 30px;
+}
+
+#pendidikan .container img {
+    float: left;
+    position: relative;
+}
+
+#pendidikan .container:nth-child(2) h1,
+#pendidikan .container:nth-child(2) span {
+    padding-top: 30px;
+}
+
+#pendidikan .container:nth-child(2) span {
+    font-size: 18px;
 }
 
 
@@ -534,10 +575,15 @@ footer ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(239, 238, 238, 0.729);
 }
 
 #motto h1 {
     color: #04488c;
+    font-weight: bold;
+}
+
+#motto h6 {
     font-weight: bold;
 }
 
@@ -548,13 +594,28 @@ footer ul {
 
 #motto .container iframe {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3), 5px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 3%;
 }
 
-#motto .list-wilayah ul {
+#motto .sejarah .back-text {
+    background: url("../img/goa_jin_wisataPage.jpeg") center;
+    height: 400px;
+    width: 600px;
+    margin-left: 100px;
+}
+
+#motto .sejarah .back-text p {
+    background-color: #04488c99;
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#motto .list-wilayah ul li,
+span {
     list-style-type: none;
     font-size: 20px;
 }
-
 
 #motto .list-wilayah ul li span,
 .list-batas-wilayah {
@@ -562,7 +623,19 @@ footer ul {
 }
 
 #motto .potensi-desa .col {
-    background-color: #04488c;
+    background-color: #04488cc1;
     margin-right: 20px;
-    height: 200px;
+    height: 250px;
+}
+
+.parawisata-img-satu {
+    margin-bottom: 70px;
+    position: relative;
+    z-index: 5;
+}
+
+.parawisata-img-dua {
+    margin-top: 90px;
+    position: relative;
+    z-index: 10;
 }
